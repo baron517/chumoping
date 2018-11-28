@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+
+	<link rel="stylesheet" href="css/swiper.min.css"/>
+
+    <link rel="stylesheet" href="css/animate.css"/>
+
+    <style>
+
+        .shijian img{margin:2px 0;}
+        .img-list{width:1016px;height:640px;position: absolute;left:456px;top:250px;}
+        .img-list div{width:117px;height:132px;float:left;background: url("img/2游戏页面/黄气球.png");margin:15px 26px;text-align: center;}
+        .img-list div.active{background: url("img/2游戏页面/绿气球.png");background-size:100% 100%;}
+        .img-list img{margin-top:36px;}
+        .img-list div.no{opacity: 0;}
+        .jindu{height:684px;}
+
+
+
+	   
+    </style>
+
+</head>
+<body>
+
+
+<div id="page1">
+    <img class="full-img" src="img/1首页/位置参考.jpg" />
+    <div class="dianji" id="pageBtn1" style="bottom:205px;left:650px;width:600px;height:150px;"></div>
+</div>
+
+<div id="page2">
+    <img class="full-img" src="img/2游戏页面/连连看游戏界面 BG.png" />
+
+    <div class="dianji" style="top:200px;left:200px;">100</div>
+
+    <div class="jindu" style="position:absolute;left:90px;width:77px;top:160px;">
+
+
+    </div>
+
+    <div class="shijian" style="position:absolute;right:80px;width:77px;top:160px;">
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+        <img src="img/2游戏页面/时间星星.png"/>
+    </div>
+
+    <div class="img-list">
+
+
+    </div>
+
+
+</div>
+
+
+<div id="page3" style="display: none;;">
+    <img class="full-img" src="img/3游戏胜利页面/位置参考.jpg" />
+    <div class="dianji" id="page3Btn1" style="top:0px;left:0px;width:260px;height:130px;">首页</div>
+    <div class="dianji" id="page3Btn2" style="bottom:205px;left:750px;width:300px;height:100px;"></div>
+
+</div>
+
+<div id="page4" style="display: none;">
+    <div class="dianji" id="page4Btn1" style="top:0px;left:0px;width:260px;height:130px;">首页</div>
+    <img class="full-img" src="img/4游戏失败页面/位置参考.jpg" />
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/need.js"></script>
+
+<script>
+
+    var jinyiciList=[
+        [1,24],
+        [2,16],
+        [3,23],
+        [4,22],
+        [5,21],
+        [6,19],
+        [7,17],
+        [8,18],
+        [9,14],
+        [10,15],
+        [11,13],
+        [12,20]
+
+    ]
+
+    for(var i=1;i<25;i++)
+    {
+        $(".img-list").append('<div data-id="'+i+'"><img src="img/2游戏页面/气球文字/'+i+'.png" /></div>');
+    }
+
+    $(".img-list div").click(function()
+    {
+        if($(this).hasClass("no"))
+        {
+            return;
+        }
+
+        if($(this).hasClass("active"))
+        {
+            $(this).removeClass("active");
+        }
+        else
+        {
+            if($(".img-list .active").length>0)
+            {
+                var shuzu=[];
+                if($(".img-list .active").attr("data-id")>$(this).attr("data-id"))
+                {
+                    shuzu.push(parseInt($(this).attr("data-id")));
+                    shuzu.push(parseInt($(".img-list .active").attr("data-id")));
+                }
+                else
+                {
+                    shuzu.push(parseInt($(".img-list .active").attr("data-id")));
+                    shuzu.push(parseInt($(this).attr("data-id")));
+                }
+
+                if(jinyiciList.indexOf(shuzu))
+                {
+                    console.log("消除");
+                    $(".img-list .active").addClass("no");
+                    $(this).addClass("no");
+
+                    var noLength=$(".img-list .no").length/2;
+
+                    for(var i=0;i<noLength;i++)
+                    {
+                        $(".jindu").append('<img src="img/2游戏页面/进度-星星.png"/>');
+                    }
+
+
+
+                }
+
+                $(".img-list .active").removeClass("active");
+            }
+            else
+            {
+                $(this).addClass("active");
+            }
+        }
+
+    });
+
+    $("#pageBtn1").click(function()
+    {
+        $("#page1").hide();
+        $("#page2").show();
+    });
+
+    $("#page3Btn2").click(function()
+    {
+        $("#page2").show();
+        $("#page3").hide();
+    });
+
+
+
+
+
+</script>
+
+</body>
+</html>

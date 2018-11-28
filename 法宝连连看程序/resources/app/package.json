@@ -1,0 +1,14 @@
+{
+  "name": "学法辨是非",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "devDependencies": {
+    "electron-packager": "^8.5.1",
+	"electron": "^1.4.5"
+  },
+  "scripts": {
+    "start": "electron .",
+    "packager": "electron-packager ./app mclans --platform=win32 --arch=ia32 --out ./OutApp --version 1.4.5 --overwrite --icon=./app/icon.ico"
+  }
+}
