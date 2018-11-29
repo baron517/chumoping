@@ -20,7 +20,7 @@ a:hover{text-decoration: none;}
 ins,a{text-decoration: none}
 
 /*common.css*/
-html{width:1920px;height:1080px;}
+html{width:1920px;height:1080px;overflow: hidden;}
 body{color:#fff;font-family: "Microsoft Yahei";width:1920px;height:1080px;overflow:hidden;}
 /*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/  
 ::-webkit-scrollbar{width: 0;height: 0;}  

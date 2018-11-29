@@ -18,6 +18,12 @@
     <style>
 
 
+        .shuben-count{position: absolute;left:0;bottom:50px;z-index:10;}
+        .shuben-count>div{float: left;font-family: jianti;margin:0 5px;color:#e70014;font-size:50px;position: relative;}
+        .shuben-count div div{text-align: center;line-height: 28px;width:100px;position: absolute;right:18px;top:0;}
+        .shuben-count div img{display: block;}
+        #flame div{z-index:20;}
+
 	   
     </style>
 
@@ -25,56 +31,96 @@
 <body>
 
 
-<div id="page1">
-<img class="full-img" src="img/1初始页面/法宝填色-1初始界面.jpg" />
-    <div class="dianji" id="pageBtn1" style="bottom:125px;left:650px;width:600px;height:150px;"></div>
+<div id="page1" class="page">
+<img class="full-img" src="img/1首页页面/位置参考图.jpg" />
+    <div class="dianji" id="pageBtn1" style="bottom:60px;left:650px;width:600px;height:150px;"></div>
 </div>
 
-<div id="page2" style="display: none;">
-    <img class="full-img" src="img/2游戏说明页面/法宝填色-2游戏说明.jpg" />
-    <div class="dianji" id="pageBtn2" style="bottom:285px;left:810px;width:300px;height:150px;"></div>
+<div id="page2" class="page" style="display: none;">
+    <img class="full-img" src="img/2游戏说明页面/位置参考图.jpg" />
+    <div class="dianji" id="pageBtn2" style="bottom:165px;left:960px;width:300px;height:150px;"></div>
+
+    <div class="dianji" id="pageBtn3" style="bottom:15px;right:10px;width:220px;height:120px;"></div>
+
 </div>
 
-<div id="page3" style="display: none;">
+<div id="page3" class="page" style="display: none;">
+    <img class="full-img" src="img/3开始游戏页面/素材/法治拼图-3开始游戏BG.png" />
+    <img class="zhuye" style="position: absolute;left:20px;top:12px;" src="img/3开始游戏页面/素材/主页按钮.png"/>
 
-    <img class="full-img" src="img/3第一关页面/第一关BG.png" />
 
-    <div class="dianji" id="timeText" style="right:40px;bottom:60px;width:240px;height:100px;line-height:90px;font-family: Arial;font-size:56px;color:#efb62b;text-align: center;-webkit-text-fill-color: #efb62b;-webkit-text-stroke: 1px black;font-weight: bold;"></div>
 
-    <canvas class="full-img" id="canvas1" width="1920" height="1080"></canvas>
+    <div  id="flame"></div>
 
-    <div id="page3Wancheng" style="z-index:1000;display: none;">
-        <img class="full-img"    src="img/4第一关完成页面/法宝填色-4第一关完成.jpg"/>
-        <div class="dianji" id="page3Btn1" style="width:220px;height:80px;right:53px;bottom:36px;">再玩一次</div>
-        <div class="dianji"  id="page3Btn2" style="width:220px;height:80px;right:300px;bottom:36px;">下一关</div>
+    <div id="zhixiang" style="position: absolute;top:740px;width:264px;text-align: center;left:50%;margin-left:-132px;">
+        <img style="position: absolute;bottom:-30px;left:-29px;" src="img/3开始游戏页面/素材/箭头.png"/>
+        <img src="img/3开始游戏页面/素材/纸箱.png"/>
     </div>
 
-    <img class="dianji" id="pageBtn3" style="left:39px;top:74px;width:110px;height: auto;"  src="img/3第一关页面/主页-未按下.png"/>
+    <div style="width:232px;height:141px;background: url('img/3开始游戏页面/素材/计时器.png');position: absolute;right:32px;bottom:57px;font-size:70px;color:#555;line-height: 141px;text-align: center;font-family: Arial;">
 
-</div>
+        <span id="timer"></span>
 
-
-<div id="page4" style="display: none;">
-
-    <img class="full-img" src="img/5第二关页面/第二关BG.png" />
-
-    <div class="dianji" id="timeText1" style="right:40px;bottom:60px;width:240px;height:100px;line-height:90px;font-family: Arial;font-size:56px;color:#efb62b;text-align: center;-webkit-text-fill-color: #efb62b;-webkit-text-stroke: 1px black;font-weight: bold;"></div>
-
-    <canvas class="full-img" id="canvas2" width="1920" height="1080"></canvas>
-
-    <div id="page4Wancheng" style="z-index:1000;display: none;">
-        <img class="full-img"    src="img/6第二关完成页面/法宝填色-6第二关完成.jpg"/>
-        <div class="dianji" id="page4Btn1" style="width:220px;height:80px;right:174px;bottom:36px;">完成</div>
     </div>
 
-    <img class="dianji" id="pageBtn4" style="left:39px;top:74px;width:110px;height: auto;" src="img/6第二关完成页面/主页-未按下.png"/>
+    <div class="shuben-count clearfix">
+
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/1.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/2.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/3.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/4.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/5.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/6.png" />
+            <div>0</div>
+        </div>
+        <div>
+            <img src="img/3开始游戏页面/素材/书本的数量/7.png" />
+            <div>0</div>
+        </div>
+
+    </div>
+
+
+
 
 </div>
 
-<div id="page5" style="display: none;">
-    <img class="full-img" src="img/7恭喜通关页面/法宝填色-7恭喜通关.jpg" />
-    <div class="dianji" id="page5Btn1" style="width:220px;height:80px;right:174px;bottom:36px;">再玩一次</div>
+<div id="page4" class="page" style="display: none;">
+    <img class="full-img" src="img/4游戏成功页面/位置参考图片.jpg" />
+    <div class="dianji zailaiyici" id="page4Btn1" style="bottom:190px;left:670px;width:300px;height:110px;">再来一次</div>
+    <div class="dianji zhuye" id="page4Btn2" style="bottom:190px;left:960px;width:300px;height:110px;">返回主页</div>
+
+    <div class="dianji" id="page4Btn3" style="bottom:100px;left:670px;width:580px;height:90px;">点击查看你收集到的书籍</div>
 </div>
+
+<div id="page5" class="page" style="display: none;">
+    <img class="full-img" src="img/5游戏失败页面/位置参考页面.jpg" />
+    <div class="dianji zailaiyici" id="page5Btn1" style="bottom:165px;left:670px;width:300px;height:150px;">再来一次</div>
+    <div class="dianji zhuye" id="page5Btn2" style="bottom:165px;left:960px;width:300px;height:150px;">返回主页</div>
+</div>
+
+<div id="page6" class="page" style="display: none;">
+    <img class="full-img" src="img/6查看书籍页面/位置参考图.jpg" />
+    <div class="dianji zhuye" id="page6Btn" style="bottom:0;right:20px;width:180px;height:150px;"></div>
+</div>
+
+
 
 
 <script src="js/jquery.js"></script>
@@ -84,162 +130,105 @@
 
 <script>
 
-    var index=0;
-    var pointList=[];
-    var guanqia=1;
-    document.onclick=function(ev){
-
-        var oEvent=ev||event;
-
-        var x=oEvent.pageX;
-        var y=oEvent.pageY;
-
-        console.log("x:"+x+"y:"+y);
-
-        if(guanqia==1)
-        {
-            var d=Math.sqrt((x-dataList1[index].x)*(x-dataList1[index].x)+(y-dataList1[index].y)*(y-dataList1[index].y));
-            console.log(d);
-            if(d<4)
-            {
-                var pointObj={};
-                pointObj.index=index+1;
-                pointObj.x=x;
-                pointObj.y=y;
-                pointList.push(pointObj);
-                if(index>=1)
-                {
-                    var prevIndex=index-1;
-                    // 设置线条的颜色
-                    context.strokeStyle = 'red';
-                    // 设置线条的宽度
-                    context.lineWidth = 3;
-                    context.moveTo(pointList[prevIndex].x,pointList[prevIndex].y);
-                    context.lineTo(x,y);
-                    context.stroke();
-                }
-                drawCircle(x,y);
-                index++;
-
-                if(index>=42)
-                {
-
-                    $("#page3Wancheng").show();
-                    clearInterval(timerId);
-                }
-
-
-            }
-        }
-        else
-        {
-
-            var d=Math.sqrt((x-dataList2[index].x)*(x-dataList2[index].x)+(y-dataList2[index].y)*(y-dataList2[index].y));
-            console.log(d);
-            if(d<4)
-            {
-                var pointObj={};
-                pointObj.index=index+1;
-                pointObj.x=x;
-                pointObj.y=y;
-                pointList.push(pointObj);
-                if(index>=1)
-                {
-                    var prevIndex=index-1;
-                    // 设置线条的颜色
-                    context.strokeStyle = 'red';
-                    // 设置线条的宽度
-                    context.lineWidth = 3;
-                    context.moveTo(pointList[prevIndex].x,pointList[prevIndex].y);
-                    context.lineTo(x,y);
-                    context.stroke();
-                }
-                drawCircle(x,y);
-                index++;
-
-                if(index>=42)
-                {
-
-                    $("#page4Wancheng").show()
-                }
-
-
-            }
-
-        }
 
 
 
+    var shubenList=["1-1","1-2","1-3","1-4","1-5","1-6","1-7","1-8","1-9","2-1","2-10","2-11","2-12","2-13","2-14","2-2","2-3","2-4","2-5","2-6","2-7","2-8","2-9","3-1","3-2","3-3","4-1","4-10","4-11","4-12","4-13","4-2","4-3","4-4","4-5","4-6","4-7","4-8","4-9","5-1","5-10","5-2","5-3","5-4","5-5","5-6","5-7","5-8","5-9","6-1","6-10","6-2","6-3","6-4","6-5","6-6","6-7","6-8","6-9","7-1","7-2","7-3","7-4","7-5"];
 
+    var wanju=["1 (1)","1 (10)","1 (11)","1 (12)","1 (13)","1 (14)","1 (15)","1 (16)","1 (17)","1 (18)","1 (19)","1 (20)","1 (8)","1 (9)"];
 
-    }
+    var allList=shubenList.concat(wanju);
 
-
-    $("#page3Btn1").click(function()
+    var xuanzhong=0;
+    $("#zhixiang").on("touchstart",function(e)
     {
-        context.clearRect(0,0,1920,1080);
-        pointList=[];
-        $("#page3Wancheng").hide()
+
+        xuanzhong=1;
 
     });
 
-    $("#page3Btn2").click(function()
-    {
-        $("#page3").hide();
-        $("#page4").show();
-        guanqia=2;
-        var time=33;
-        $("#timeText1").text(time);
-
-        timerId=setInterval(function()
-        {
-            time--;
-            $("#timeText1").text(time);
-            if(time==0)
-            {
-                clearInterval(timerId);
-                $("#page1").show();
-                $("#page4").hide();
-            }
-        },1000)
-
-
-
-    });
-
-    $("#page5Btn1").click(function()
-    {
-        context.clearRect(0,0,1920,1080);
-        pointList=[];
-        $("#page1").show();
-        $("#page5").hide();
-        guanqia=1;
-    });
-
-
-    $("#page4Btn1").click(function()
+    $("#page4Btn3").click(function()
     {
         $("#page4").hide();
-        $("#page5").show();
+        $("#page6").show();
     });
 
+    var jiezhuCount=0;
+    function  isJiezhu(x)
+    {
 
-    var canvas1 = document.getElementById("canvas1");
-    var context = canvas1.getContext("2d");
-    context.fillStyle = "rgba(255, 255, 255, 0)";
-    context.fillRect(0, 0, 1920, 1080);
+        $("#flame div").each(function()
+        {
+            var left=parseInt($(this).css("left").split("px")[0]);
+            var top=parseInt($(this).css("top").split("px")[0]);
 
-    function drawCircle(x,y){
+            //console.log("left:"+left+"top:"+top);
 
-            context.beginPath();
-            context.arc(x, y, 5, 0, Math.PI*2, true);
-            context.closePath();
-            context.fillStyle = "red";
-            context.fill();
+            if(Math.abs(top-740)<80&&Math.abs(left-x)<80)
+            {
+
+               var imgId= $(this).find("img").attr("data-id");
+                if(imgId.indexOf("-")>-1)
+                {
+                    console.log("接住了");
+                    console.log(imgId);
+                    var imgIdIndex=imgId.split("-")[0];
+                    var textObj=$(".shuben-count div").eq(imgIdIndex-1).find("div");
+                    jiezhuCount++;
+                    if(jiezhuCount>=78)
+                    {
+                        $("#page3").hide();
+                        $("#page4").show();
+
+                    }
+                    textObj.text( parseInt(textObj.text())+1);
+                }
+
+                $(this).remove();
+            }
+
+        });
 
     }
 
 
+    setInterval(function()
+    {
+        isJiezhu(parseInt($("#zhixiang").css("left").split("px")[0]));
+
+    },100);
+
+
+    var zuobiao=0;
+    $("#zhixiang").on("touchmove",function(e)
+    {
+
+        if(xuanzhong)
+        {
+            var touch = e.originalEvent.touches[0]; //获取第一个触点
+            zuobiao = Number(touch.pageX); //页面触点X坐标
+            if(zuobiao<1830&&zuobiao>80)
+            {
+                $("#zhixiang").css("left",zuobiao+"px");
+            }
+
+
+        }
+
+    });
+
+    $("#zhixiang").on("touchend",function(e)
+    {
+
+        xuanzhong=0;
+
+    });
+
+    $(".zhuye").click(function()
+    {
+        $(".page").hide();
+        $("#page1").show();
+    });
 
     $("#pageBtn1").click(function()
     {
@@ -247,39 +236,153 @@
         $("#page2").show();
     });
 
-    var timerId;
     $("#pageBtn2").click(function()
     {
-        var time=33;
         $("#page2").hide();
         $("#page3").show();
-
-        var time=33;
-        $("#timeText").text(time);
-
-        timerId=setInterval(function()
-        {
-            time--;
-            $("#timeText").text(time);
-            if(time==0)
-            {
-                clearInterval(timerId);
-                $("#page1").show();
-                $("#page3").hide();
-            }
-        },1000)
-
-
+        kaishi();
     });
 
     $("#pageBtn3").click(function()
     {
-        $("#page3").hide();
         $("#page1").show();
+        $("#page2").hide();
     });
 
-    var dataList1=[{"index":1,"x":733,"y":233},{"index":2,"x":760,"y":373},{"index":3,"x":725,"y":447},{"index":4,"x":768,"y":513},{"index":5,"x":807,"y":548},{"index":6,"x":749,"y":577},{"index":7,"x":745,"y":534},{"index":8,"x":668,"y":473},{"index":9,"x":681,"y":561},{"index":10,"x":690,"y":640},{"index":11,"x":734,"y":668},{"index":12,"x":757,"y":621},{"index":13,"x":805,"y":626},{"index":14,"x":791,"y":674},{"index":15,"x":832,"y":709},{"index":16,"x":857,"y":769},{"index":17,"x":797,"y":877},{"index":18,"x":937,"y":840},{"index":19,"x":928,"y":778},{"index":20,"x":961,"y":775},{"index":21,"x":1056,"y":913},{"index":22,"x":1156,"y":864},{"index":23,"x":1093,"y":767},{"index":24,"x":1235,"y":797},{"index":25,"x":1115,"y":700},{"index":26,"x":1203,"y":665},{"index":27,"x":1047,"y":635},{"index":28,"x":1101,"y":607},{"index":29,"x":1099,"y":552},{"index":30,"x":1061,"y":568},{"index":31,"x":1051,"y":546},{"index":32,"x":997,"y":581},{"index":33,"x":886,"y":541},{"index":34,"x":950,"y":476},{"index":35,"x":1026,"y":388},{"index":36,"x":958,"y":386},{"index":37,"x":986,"y":130},{"index":38,"x":890,"y":320},{"index":39,"x":857,"y":312},{"index":40,"x":875,"y":228},{"index":41,"x":858,"y":197},{"index":42,"x":799,"y":206}];
-    var dataList2=[{"index":1,"x":796,"y":173},{"index":2,"x":767,"y":229},{"index":3,"x":756,"y":264},{"index":4,"x":751,"y":298},{"index":5,"x":726,"y":336},{"index":6,"x":699,"y":377},{"index":7,"x":735,"y":462},{"index":8,"x":797,"y":498},{"index":9,"x":801,"y":528},{"index":10,"x":784,"y":588},{"index":11,"x":744,"y":586},{"index":12,"x":744,"y":552},{"index":13,"x":720,"y":541},{"index":14,"x":692,"y":519},{"index":15,"x":660,"y":604},{"index":16,"x":690,"y":613},{"index":17,"x":723,"y":614},{"index":18,"x":799,"y":622},{"index":19,"x":921,"y":758},{"index":20,"x":867,"y":821},{"index":21,"x":906,"y":817},{"index":22,"x":897,"y":834},{"index":23,"x":884,"y":789},{"index":24,"x":949,"y":861},{"index":25,"x":885,"y":672},{"index":26,"x":902,"y":662},{"index":27,"x":1010,"y":733},{"index":28,"x":1178,"y":729},{"index":29,"x":1122,"y":757},{"index":30,"x":1148,"y":740},{"index":31,"x":1196,"y":793},{"index":32,"x":1119,"y":734},{"index":33,"x":1177,"y":851},{"index":34,"x":1230,"y":762},{"index":35,"x":978,"y":641},{"index":36,"x":937,"y":590},{"index":37,"x":933,"y":514},{"index":38,"x":977,"y":525},{"index":39,"x":1072,"y":580},{"index":40,"x":1165,"y":617},{"index":41,"x":1153,"y":562},{"index":42,"x":1233,"y":526},{"index":43,"x":1165,"y":519},{"index":44,"x":1216,"y":477},{"index":45,"x":1150,"y":485},{"index":46,"x":1170,"y":450},{"index":47,"x":1051,"y":494},{"index":48,"x":952,"y":487},{"index":49,"x":944,"y":481},{"index":50,"x":940,"y":447},{"index":51,"x":954,"y":426},{"index":52,"x":1042,"y":374},{"index":53,"x":1101,"y":310},{"index":54,"x":1143,"y":301},{"index":55,"x":1211,"y":295},{"index":56,"x":1142,"y":271},{"index":57,"x":1056,"y":287},{"index":58,"x":1055,"y":254},{"index":59,"x":1086,"y":192},{"index":60,"x":1057,"y":135},{"index":61,"x":1034,"y":187},{"index":62,"x":868,"y":195}];
+    function shuffle(arr) {
+
+        arr.sort(function () {
+
+            return Math.random() - 0.5;
+
+        });
+
+        return arr;
+
+    }
+
+    allList=shuffle(allList);
+
+
+
+    //书本下降效果
+    function Obj(){}  //创建一个对象
+
+    /*为这个对象添加一个具有一个参数的原型方法*/
+    Obj.prototype.draw=function(o){
+        var speed=0;   //雪花每次下落的数值（10px）
+        var startPosLeft=Math.ceil(Math.random()*(1800-100+1)+100);//设置雪花随机的开始x值的大小
+        o.style.opacity=(Math.ceil(Math.random()*3)+7)/10;  //设置透明度
+        o.style.left=startPosLeft+'px';
+        o.style.color="#fff";
+        o.style.fontSize=12+Math.ceil(Math.random()*14)+'px';
+        setInterval(function(){
+            //雪花下落的top值小鱼屏幕的可视区域高时执行下列
+            if(speed<document.documentElement.clientHeight){
+                o.style.top=speed+'px';
+                o.style.left=startPosLeft+Math.ceil(Math.random()*8)+'px';
+                speed+=10;
+            }
+            else{
+                o.style.display='none';
+            }
+        },100);
+    }
+
+    var flame=document.getElementById('flame');
+
+    /*使用setInterval定时器每800毫秒创建一个雪花*/
+    var suijiImg=0;
+    var diaoluoId;
+
+
+
+
+    // 倒计时
+    var _ordertimer = null;
+    function leftTimer(timeCha) {
+        var leftTime = timeCha*1000; //计算剩余的毫秒数
+        var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
+        var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
+        var minutes = parseInt(leftTime / 1000 / 60 % 60, 10);//计算剩余的分钟
+        var seconds = parseInt(leftTime / 1000 % 60, 10);//计算剩余的秒数
+        days = checkTime(days);
+        hours = checkTime(hours);
+        seconds = checkTime(seconds);
+        if (days >= 0 || hours >= 0 || minutes >= 0 || seconds >= 0) document.getElementById("timer").innerHTML = "&nbsp;"+minutes + ":" + seconds;
+        if (days <= 0 && hours <= 0 && minutes <= 0 && seconds <= 0) {
+            window.clearInterval(_ordertimer);
+            _ordertimer = null;
+        }
+    }
+    function checkTime(i) { //将0-9的数字前面加上0，例1变为01
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+
+    function kaishi()
+    {
+        var shijian=166;
+        leftTimer(shijian);
+        if(_ordertimer)
+        {
+            clearInterval(_ordertimer);
+        }
+        _ordertimer=setInterval(function()
+        {
+            if(shijian!=0)
+            {
+                shijian--;
+                leftTimer(shijian);
+
+            }
+            else
+            {
+                clearInterval(_ordertimer);
+            }
+        },1000);
+
+        if(diaoluoId)
+        {
+            clearInterval(diaoluoId);
+        }
+
+        diaoluoId=setInterval(function(){
+            var odiv=document.createElement('div');  //创建div
+
+            var imgUrl=allList[suijiImg];
+            if(imgUrl.indexOf("-")>-1)
+            {
+                odiv.innerHTML="<img data-id='"+imgUrl+"' src='img/3开始游戏页面/素材/掉落的书籍/"+imgUrl+".png' />";   //div的内容
+            }
+            else
+            {
+                odiv.innerHTML="<img data-id='"+imgUrl+"' src='img/3开始游戏页面/素材/掉落的玩具/"+imgUrl+".png'/>";   //div的内容
+            }
+
+            suijiImg++;
+            //console.log(suijiImg);
+            if(suijiImg>=78)
+            {
+                clearInterval(diaoluoId);
+                $("#page3").hide();
+                $("#page5").show();
+            }
+
+            odiv.style.position='absolute';  //div的绝对定位
+            flame.appendChild(odiv);   //把创建好的div放进flame中
+            var obj=new Obj();   //创建函数
+            obj.draw(odiv);  //执行obj的draw方法
+        },2000);
+
+
+    }
+
+
+
 
 
 </script>
