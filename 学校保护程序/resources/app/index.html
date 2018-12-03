@@ -31,6 +31,8 @@
 </head>
 <body>
 
+<!--
+
 <img class="full-img" src="img/学校保护/一级/素材/学校保护一级BG.png"/>
 
 <div class="btn-list">
@@ -60,6 +62,7 @@
 
 </div>
 
+-->
 
 
 
@@ -67,8 +70,17 @@
 <script src="js/common.js"></script>
 <script src="js/swiper.min.js"></script>
 <script src="js/need.js"></script>
-
+<script src="js/socket.io.js"></script>
 <script>
+
+	 var socket = io.connect('http://localhost:9001');
+
+    socket.on('send',function( data ){
+
+        console.log(data);
+
+       
+    });
 
     $(".btn-list div").click(function()
     {

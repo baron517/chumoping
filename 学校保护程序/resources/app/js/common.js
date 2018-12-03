@@ -39,8 +39,12 @@ $(".link-btn").click(function()
 
 $(function()
 {
-
-    require('electron').webFrame.setZoomLevelLimits(1,1);
+	try {
+		require('electron').webFrame.setZoomLevelLimits(1,1);
+	}
+	catch(err){
+		console.log(err);
+    }
 
 });
 
